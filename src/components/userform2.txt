@@ -1,0 +1,80 @@
+// .. goes 1 directory above . means current directory
+// cmd /  comments the whole line
+
+
+// const userForm = () => {
+
+//     return (
+//         <form>
+//             <div>
+//                 <label htmlFor="firstName">First Name:</label>
+//                 <input name="firstName"  />
+//             </div>
+//             <div>
+//                 <label htmlFor="lastName">Last Name:</label>
+//                 <input name="lastName" />
+//             </div>
+//             <div>
+//                 <label htmlFor="address">Address:</label>
+//                 <input name="address" />
+//             </div>
+//             <div>
+//                 <label htmlFor="apt">Apt:</label>
+//                 <input name="apt" />
+//             </div>
+//             <div
+//                 <label htmlFor="city">City:</label>
+//                 <input name="city" />
+//             </div>
+//             <div>
+//                 <label htmlFor="state">State: Will be dropdown</label>
+//                 <input name="state" />
+//             </div>
+//             <div>
+//                 <label htmlFor="zip">ZIP</label>
+//                 <input name="zip" />
+//             </div>
+//             <div>
+//                 <label htmlFor="email">Email:</label>
+//                 <input name="email" />
+//             </div>
+//             <div>
+//                 <label htmlFor="mobile">Mobile:</label>
+//                 <input name="mobile" />
+//             </div>
+
+//             <div>
+//                 <label htmlFor="mobile">Morning(8-12): (checkbox)</label>
+//                 <input name="morning" />
+//             </div>
+//             <div>
+//                 <label htmlFor="mobile">Afternoon(12-5): (checkbox)</label>
+//                 <input name="afternoon" />
+//             </div>
+//             <div>
+//                 <label htmlFor="mobile">Evening(5-10): (checkbox)</label>
+//                 <input name="evening" />
+//             </div>
+
+//             <div>
+//                 <label htmlFor="slow">Slow:</label>
+//                 <input name="slow" /> 
+//             </div>
+//             <div>
+//                 <label htmlFor="medium">Medium:</label>
+//                 <input name="medium" /> 
+//             </div>
+//             <div>
+//                 <label htmlFor="medium">Fast:</label>
+//                 <input name="fast" /> 
+//             </div>
+
+
+//             <input
+//                 type="submit"
+//                 value="Add User" />
+//         </form>
+//     );
+// };
+
+// export default userForm;
