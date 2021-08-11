@@ -1,18 +1,36 @@
-// import userForm from './components/userform2.txt'
-
-
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-// import {KEY} from './secrets.js';
-// import { getDefaultNormalizer } from '@testing-library/dom';
-import Form from './components/form.js';
+import Formu from './components/formu.js';
+import BuddiesList from './components/BuddiesList';
+import Buddy from './components/Buddy';
 
+//should I use empty array?  
 function App() {
-  const BASE_URL = 'http://localhost:5000/buddy';
+  const BASE_URL = 'http://localhost:5000/';
+  const[buddies, setBuddies] = useState([]);
+  useEffect(() =>{
+    axios.get(`${BASE_URL}/buddy`)
+    .then((response) => setBuddies(response.data))
+    .catch((err) => console.log(err));
+  },[]);
+ 
+  const onSubmit=(event)=>{
+    event.preventDefault();
+    axios.post();
+  }
+
+  
+ 
+  //{/* <RobotForm onSubmitCallback={onSubmit}/>*/}
   return (
+    <section>
     <div className="App">
-      <Form />
+      <Formu />
     </div>
+    <div>
+      <BuddiesList buddies={buddies}/>  
+    </div>
+    </section>
   );
 }
 
