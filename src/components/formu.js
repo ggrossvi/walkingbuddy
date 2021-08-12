@@ -50,6 +50,8 @@ const [checkedState, setCheckedState] = useState(
   new Array(times.length).fill(false)
 );
 // const handleOnChange = (position) => {
+//   console.log("onchange handler called")
+
 //   const updatedCheckedState = checkedState.map((item, index) =>
 //     index === position ? !item : item
 //   );
@@ -68,6 +70,8 @@ const [checkedState, setCheckedState] = useState(
 //         0
 //       );
 //   }
+
+
   return (
     <form onSubmit={handleSubmit}>
 <div>
