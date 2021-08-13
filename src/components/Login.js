@@ -22,6 +22,13 @@ function Login(props) {
     .then((response) => {
       console.log("HERE should be response")
       console.log(response.data)
+
+      //show them the whole page
+      if (response.data.message != "created new user"){
+        props.setShowForm(true)
+
+      }
+
     })
     .catch((err) =>{ console.log("This should be the errror")}
     

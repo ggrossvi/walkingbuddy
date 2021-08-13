@@ -14,6 +14,7 @@ import Logout from './components/Logout';
 function App() {
   const BASE_URL = 'http://localhost:5000';
   const [buddies, setBuddies] = useState([]);
+  const [showForm, setShowForm] = useState(false);
   // useEffect(() =>{
   //   axios.get(`${BASE_URL}/buddy`)
   //   .then((response) => setBuddies(response.data))
@@ -32,10 +33,13 @@ function App() {
     <section>
       <div className="App">
         <p>Hi</p>
-        <Login BASE_URL={BASE_URL}/>
+        <Login BASE_URL={BASE_URL} setShowForm={setShowForm}/>
         <div id="logout">
           <Logout />
         </div>
+        {showForm &&
+          <Formu />
+         }
         {/* <Formu /> */}
       </div>
       <div>
