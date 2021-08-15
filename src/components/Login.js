@@ -24,7 +24,7 @@ function Login(props) {
       console.log(response.data)
 
       //show them the whole page
-      if (response.data.message != "created new user"){
+      if (response.data.message !== "created new user"){
         props.setShowForm(true)
 
       }

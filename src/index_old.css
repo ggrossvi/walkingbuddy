@@ -1,10 +1,3 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -17,22 +10,4 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
-}
-
-.navigation-menu {
-  list-style-type: none;
-  margin-bottom: 1rem;
-}
-
-.navigation-menu li {
-  display: inline-block;
-}
-
-.navigation-menu li a {
-  padding: 0.5rem;
-}
-
-.active {
-  font-weight: bold;
-  color: red;
 }

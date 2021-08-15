@@ -1,26 +1,64 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import { times } from "../utils/times";
+import axios from 'axios';
 
-const baseURL = "http://127.0.0.1:5500/"
+const baseURL = "http://127.0.0.1:5000/"
 
 
 
 function Formu(){
   const[fname, setFname] = useState('')
   //const[lname, setLname] = useState('')
-  const[zip, setZip] = useState('')
+  const[zipcode, setZipCode] = useState('')
   // const[morning,setMorning] = useState('')
   const [email, setEmail] = useState('')
   //const [password, setPassword] = useState('')
-  
+  const [post, setPost] = React.useState(null);
+
+  React.useEffect(() => {
+    axios.get(`${baseURL}/buddy`).then((response) => {
+      setPost(response.data);
+
+    });
+  }, []);
+
+  function createPost() {
+    axios
+      .post(`${baseURL}/buddy`, {
+        first_name: fname,
+        // last_name: "",
+        // address: " 301 1st ave n",
+        // apt: "",
+        // city: "",
+        // state: "",
+        zipcode: zipcode,
+        email: "treasuresoftheandes@yahoo.com",
+        morning: true,
+        afternoon: false,
+        evening: true,
+        bio: "I like to play bridge"
+      })
+      .then((response) => {
+        console.log("it worked!")
+        console.log(response)
+        setPost(response.data);
+      });
+  }
+
+  if (!post){
+    console.log("failed")
+    return "No post!"
+  };
+
+
   // const handleLnameChange = event => {
   //   setLname(event.target.value)
   // };
   const handleFnameChange = event => {
     setFname(event.target.value)
   };
-  const handleZipChange = event => {
-    setZip(event.target.value)
+  const handleZipCodeChange = event => {
+    setZipCode(event.target.value)
   };
   // const handleMorningChange = event => {
   //   setMorning(event.target.value)
@@ -32,23 +70,26 @@ function Formu(){
   //   setPassword(event.target.value)
   // };
 
-  const handleSubmit = event => {
-    event.preventDefault();
-     {/*lname: ${lname} \n */}
-     {/*password: ${password} \n*/}
-    alert(`Your state values: \n         
-            fname: ${fname} \n 
-            zip: ${zip} \n 
-            email: ${email} \n          
-            You can replace this alert with your process`);
-  };
+  // const handleSubmit = event => {
+  //   event.preventDefault();
+  //    {/*lname: ${lname} \n */}
+  //    {/*password: ${password} \n*/}
+  //   alert(`Your state values: \n         
+  //           fname: ${fname} \n 
+  //           zip: ${zipcode} \n 
+  //           email: ${email} \n          
+  //           You can replace this alert with your process`);
+  // };
 
 //checkbox code
 
 // times is in util folder
-const [checkedState, setCheckedState] = useState(
-  new Array(times.length).fill(false)
-);
+
+// const [checkedState, setCheckedState] = useState(
+//   new Array(times.length).fill(false)
+// );
+
+
 // const handleOnChange = (position) => {
 //   console.log("onchange handler called")
 
@@ -73,7 +114,7 @@ const [checkedState, setCheckedState] = useState(
 
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form >
 <div>
  <label>First name</label>
  <input
@@ -98,10 +139,10 @@ const [checkedState, setCheckedState] = useState(
  <label>Zip</label>
  <input
    type="zip"
-   name="zip"
+   name="zipcode"
    placeholder="Enter zip"
-   onChange={handleZipChange}
-   value={zip}
+   onChange={handleZipCodeChange}
+   value={zipcode}
  />
 </div>
 {/*
@@ -139,7 +180,7 @@ const [checkedState, setCheckedState] = useState(
              id={`custom-checkbox-${index}`}
              name={time}
              value={time}
-             checked={checkedState[index]}
+            //  checked={checkedState[index]}
             //  onChange={() => handleOnChange(index)}
            />
            <label htmlFor={`custom-checkbox-${index}`}>{time}</label>
@@ -148,11 +189,12 @@ const [checkedState, setCheckedState] = useState(
        </div>
      </li>
    
- ))
+ )
+ )
  }
  </ul>
  
-<button type="submit">
+<button type="submit" onClick={createPost}>
  Submit
 </button>
 </form>
