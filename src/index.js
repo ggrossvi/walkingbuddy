@@ -9,6 +9,7 @@ import './index.css';
 import Register from "./components/Register";
 import Login from "./components/Login";
 import Logout from "./components/Logout";
+import Profile from "./components/Profile";
 
 
 const Home = () => {
@@ -27,15 +28,15 @@ const Buddyup = () => {
   return <h2>Buddyup</h2>
 };
 
-const Profile = (props) => {
-  console.log(props);
-  return (
-    <div>
-      <h2>Profile</h2>
-      <Link to="/profile/10">Edit Profile</Link>
-    </div>
-  );
-};
+// const Profile = (props) => {
+//   console.log(props);
+//   return (
+//     <div>
+//       <h2>Profile</h2>
+//       <Link to="/profile/10">Edit Profile</Link>
+//     </div>
+//   );
+// };
 
 const EditProfile = (props) => {
   console.log(props);

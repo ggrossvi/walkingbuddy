@@ -14,7 +14,9 @@ const times = [
       time: "Evening"
   }
 ]
-function Register() {
+
+
+function Profile() {
   const [fname, setFname] = useState('');
   const[lname, setLname] = useState('');
   const [email, setEmail] = useState('');
@@ -35,10 +37,10 @@ function Register() {
   //   });
   // }, []);
 
-  function createPost(event) {
+  function createPut(event) {
     event.preventDefault();
     axios
-      .post("/buddy", {
+      .put("/buddy", {
         // given_name and family_name have this because of login object having these names.
         given_name : fname,
         family_name: lname,
@@ -87,6 +89,9 @@ function Register() {
     setCity(event.target.value)
   };
   const handleStateChange = event => {
+    setState(event.target.value)
+  };
+  const handleZipcodeChange = event => {
     setCity(event.target.value)
   };
   const handleBioChange = event => {
@@ -114,7 +119,7 @@ function Register() {
   
 
   return (
-    <form onSubmit={createPost}>
+    <form onSubmit={createPut}>
         <div>
             <label>First name</label>
             <input
