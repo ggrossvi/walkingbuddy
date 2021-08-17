@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 // import { times } from "../utils/times";
 import axios from 'axios';
 
-const baseURL = "http:localhost:5000"
+const baseURL = "localhost:5000"
 const times = [
   {
       time: "Morning"
@@ -24,7 +24,7 @@ function Profile() {
   const [apt, setApt] = useState('');
   const [city, setCity] = useState('');
   const [state, setState] = useState('');
-  const [zipcode, setZipCode] = useState('');
+  const [zipcode, setZipcode] = useState('');
   const [bio, setBio] = useState('');
   //Checkboxes hold time preference for walks
   const [checkboxes, setCheckboxes] = useState([false, false, false]);
@@ -37,25 +37,25 @@ function Profile() {
   //   });
   // }, []);
 
-  function createPut(event) {
+  function createPost(event) {
     event.preventDefault();
     axios
-      .put("/buddy", {
+      .post("/buddy/register", {
         // given_name and family_name have this because of login object having these names.
         given_name : fname,
         family_name: lname,
         email: email,
         // first_name: fname,
         // last_name: "",
-        address: " 301 1st ave n",
-        apt: "",
-        city: "",
-        state: "",
+        address: address,
+        apt: apt,
+        city: city,
+        state: state,
         zipcode: zipcode,
         morning: checkboxes[0],
         afternoon: checkboxes[1],
         evening: checkboxes[2],
-        bio: "I like to play bridge"
+        bio: bio
       })
       .then((response) => {
         console.log("it worked!")
@@ -92,7 +92,7 @@ function Profile() {
     setState(event.target.value)
   };
   const handleZipcodeChange = event => {
-    setCity(event.target.value)
+    setZipcode(event.target.value)
   };
   const handleBioChange = event => {
     setBio(event.target.value)
@@ -119,7 +119,7 @@ function Profile() {
   
 
   return (
-    <form onSubmit={createPut}>
+    <form onSubmit={createPost}>
         <div>
             <label>First name</label>
             <input
@@ -187,7 +187,7 @@ function Profile() {
             name="state"
             placeholder="Enter state"
             onChange={handleStateChange}
-            value={city}
+            value={state}
             />
         </div>
 

@@ -1,0 +1,6 @@
+Add Buddy Route on index.js
+Make buddy page 
+Make put page 
+
+
+upload to heroku

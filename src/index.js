@@ -10,6 +10,7 @@ import Register from "./components/Register";
 import Login from "./components/Login";
 import Logout from "./components/Logout";
 import Profile from "./components/Profile";
+//import BuddiesList from "./components/BuddiesList";
 
 
 const Home = () => {
@@ -24,9 +25,9 @@ const Home = () => {
 //   return <h2>Register</h2>
 // };
 
-const Buddyup = () => {
-  return <h2>Buddyup</h2>
-};
+// const Buddy = () => {
+//   return <h2>Buddy</h2>
+// };
 
 // const Profile = (props) => {
 //   console.log(props);
@@ -56,7 +57,7 @@ const App = () => {
           <Route path="/login" component={Login} />
           <Route path="/logout" component={Logout} />
           <Route path="/register" component={Register} />
-          <Route path="/buddyup" component={Buddyup} />
+          {/*<Route path="/buddieslist" component={BuddiesList} />*/}
           <Route path="/profile" component={Profile} />
           <Route path="/profile/:id" component={EditProfile} />
           <Route component={NotFound} />

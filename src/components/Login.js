@@ -8,16 +8,17 @@ import { refreshTokenSetup } from '../utils/refreshToken';
 const clientId =
   '377138841456-1n5tnk1f6d8taetaglppc2jpncd6q0v2.apps.googleusercontent.com';
 
-
+  const BASE_URL = 'http://localhost:5000';
 
 
 function Login(props) {
   const onSuccess = (res) => {
     console.log('Login Success: currentUser:', res.profileObj);
+    console.log('Login Success: currentUser:', res);
     //send to db res.profileObj to backend, chk if user already exist query email address against db email, if not create new user based on profileobj given
   
     // const fetchData = () => {
-    axios.post(`${props.BASE_URL}/buddy`,res.profileObj)
+    axios.post(`${BASE_URL}/buddy`,res.profileObj)
 
     .then((response) => {
       console.log("HERE should be response")
@@ -25,6 +26,7 @@ function Login(props) {
 
       //show them the whole page
       if (response.data.message !== "created new user"){
+        //if true means that user is a return user
         props.setShowForm(true)
 
       }

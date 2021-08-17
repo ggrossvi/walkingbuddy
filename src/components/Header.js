@@ -16,6 +16,9 @@ const Header = () => {
       <li>
         <NavLink to="/profile" activeClassName="active">Profile</NavLink>
       </li>
+      {/*<li>
+        <NavLink to="/buddieslist" activeClassName="active">Buddies List</NavLink>
+      </li>*/}
       <li>
         <NavLink to="/logout" activeClassName="active">Logout</NavLink>
       </li>
