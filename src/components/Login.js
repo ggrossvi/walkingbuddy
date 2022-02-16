@@ -8,7 +8,8 @@ import { refreshTokenSetup } from '../utils/refreshToken';
 const clientId =
   '377138841456-1n5tnk1f6d8taetaglppc2jpncd6q0v2.apps.googleusercontent.com';
 
-  const BASE_URL = 'http://localhost:5000';
+// const BASE_URL = 'http://localhost:5000';
+const BASE_URL = "https://walking-buddy-bkend.herokuapp.com";
 
 
 function Login(props) {

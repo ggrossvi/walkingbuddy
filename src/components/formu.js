@@ -2,7 +2,8 @@ import React, {useState, useEffect} from "react";
 import { times } from "../utils/times";
 import axios from 'axios';
 
-const baseURL = "http://127.0.0.1:5000/"
+// const baseURL = "http://127.0.0.1:5000/"
+const baseURL = "https://walking-buddy-bkend.herokuapp.com";
 
 
 

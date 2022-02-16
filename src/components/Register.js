@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 // import { times } from "../utils/times";
 import axios from 'axios';
 
-const baseURL = "http:localhost:5000"
+// const baseURL = "http:localhost:5000"
+const baseURL = "https://walking-buddy-bkend.herokuapp.com";
 const times = [
   {
       time: "Morning"
@@ -33,9 +34,9 @@ function Register() {
   function createPost(event) {
     event.preventDefault();
     axios
-      .post("/buddy", {
+      .post(`${baseURL}/buddy`, {
         // given_name and family_name have this because of login object having these names.
-        given_name : fname,
+        given_name: fname,
         family_name: lname,
         // first_name: fname,
         // last_name: "",
@@ -51,8 +52,8 @@ function Register() {
         // bio: "I like to play bridge"
       })
       .then((response) => {
-        console.log("it worked!")
-        console.log(response)
+        console.log("it worked!");
+        console.log(response);
         // setPost(response.data);
       });
   }
